@@ -2,15 +2,6 @@ function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-#function parse_git_dirty {
-#    git status -s > /dev/null 2>&1
-#    if [[ $? -eq 0 ]]; then
-#        echo "!"
-#    else
-#        echo ""
-#    fi
-#}
-
 function parse_git_dirty () {
     if [[ $((git status 2> /dev/null) | tail -n1) != "nothing to commit (working directory clean)" ]]; then
         echo "!"
