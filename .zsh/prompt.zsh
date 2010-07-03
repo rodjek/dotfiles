@@ -4,4 +4,10 @@ function git_prompt_info() {
     fi
 }
 
-PROMPT='%m :: %2~ $(git_prompt_info)%B»%b '
+function svn_prompt_info() {
+    if [[ $__IS_SVN_REPO -eq 1 ]]; then
+        echo "svn:(r$__SVN_REV)"
+    fi
+}
+
+PROMPT='%m :: %2~ $(git_prompt_info)$(svn_prompt_info)%B»%b '
