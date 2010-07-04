@@ -10,4 +10,4 @@ function svn_prompt_info() {
     fi
 }
 
-PROMPT='%m :: %2~ $(git_prompt_info)$(svn_prompt_info)%B»%b '
+PROMPT='%m :%?: %2~ $(git_prompt_info)$(svn_prompt_info)%B»%b '
