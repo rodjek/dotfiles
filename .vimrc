@@ -3,7 +3,7 @@ set sts=4
 set sw=4
 syn on
 set et
-colorscheme koehler
+colorscheme ir_black
 imap jj <Esc>
 set ruler
 set modeline
