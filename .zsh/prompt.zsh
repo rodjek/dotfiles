@@ -10,4 +10,12 @@ function svn_prompt_info() {
     fi
 }
 
-PROMPT='%m :%?: %2~ $(git_prompt_info)$(svn_prompt_info)%B»%b '
+function is_root() {
+    if [ $(id -u) -eq 0 ]; then
+        echo '\e[0;31m%B»%b\e[0m'
+    else
+        echo '%B»%b'
+    fi
+}
+
+PROMPT='%m :%?: %2~ $(git_prompt_info)$(svn_prompt_info)$(is_root) '
