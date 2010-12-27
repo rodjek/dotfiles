@@ -16,4 +16,5 @@ syntax on
 set nocompatible
 set t_Co=256
 
+map <F2> :NERDTreeToggle<CR>
 cmap w!! w !sudo tee % > /dev/null
