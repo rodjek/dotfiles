@@ -12,10 +12,10 @@ function svn_prompt_info() {
 
 function is_root() {
     if [ $(id -u) -eq 0 ]; then
-        echo '\e[0;31m%B»%b\e[0m'
+        echo '\e[33m»\e[00m'
     else
-        echo '%B»%b'
+        echo '\e[32m»\e[00m'
     fi
 }
 
-PROMPT='%m :%?: %2~ $(git_prompt_info)$(svn_prompt_info)$(is_root) '
+PROMPT='%m :%{$fg[blue]%}%?%{$reset_color%}: %2~ $(git_prompt_info)$(svn_prompt_info)$(is_root) '
