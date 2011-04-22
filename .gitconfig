@@ -1,0 +1,16 @@
+[user]
+	name = Tim Sharpe
+	email = tim@sharpe.id.au
+
+[color]
+    ui = auto
+
+[push]
+    default = tracking
+
+[rerere]
+    enabled = true
+
+[alias]
+    up = pull --rebase
+    st = status
