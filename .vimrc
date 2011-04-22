@@ -7,8 +7,9 @@ set sts=4
 set sw=4
 syn on
 set et
-colorscheme ir_black
-imap hh <Esc>
+set background=dark
+let g:solarized_termcolors=16
+colorscheme solarized
 set ruler
 set modeline
 filetype plugin indent on
