@@ -1,3 +1,5 @@
+setopt prompt_subst
+
 function git_prompt_info() {
     if [[ $__SHOW_GIT_INFO -eq 1 ]]; then
         echo "git:($__CURRENT_GIT_BRANCH)$__CURRENT_GIT_DIRTY"
@@ -12,9 +14,9 @@ function svn_prompt_info() {
 
 function is_root() {
     if [ $(id -u) -eq 0 ]; then
-        echo '\e[33m»\e[00m'
+        echo "%{$fg[red]%}»%{$reset_color%}"
     else
-        echo '\e[32m»\e[00m'
+        echo "%{$fg[green]%}»%{$reset_color%}"
     fi
 }
 
