@@ -20,5 +20,7 @@
     st = status
 [hub]
 	protocol = https
+[core]
+	excludesfile = /Users/tsharpe/.gitignore.global
 [credential]
 	helper = osxkeychain
