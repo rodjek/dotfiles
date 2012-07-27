@@ -18,3 +18,5 @@
 [alias]
     up = pull --rebase
     st = status
+[hub]
+	protocol = https
