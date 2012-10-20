@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+# Currently drawing from 'AC Power'
+#  -InternalBattery-0     99%; charged; 0:00 remaining
+# sammael :0: ~ » man pmset
+# sammael :0: ~ » pmset -g batt
+# Currently drawing from 'Battery Power'
+#  -InternalBattery-0     99%; discharging; (no estimate)
+# sammael :0: ~ » pmset -g batt
+# Currently drawing from 'Battery Power'
+#  -InternalBattery-0     99%; discharging; (no estimate)
+# sammael :0: ~ » pmset -g batt
+# Currently drawing from 'Battery Power'
+#  -InternalBattery-0     99%; discharging; (no estimate)
+# sammael :0: ~ » pmset -g batt
+# Currently drawing from 'Battery Power'
+#  -InternalBattery-0     99%; discharging; (no estimate)
+# sammael :0: ~ » pmset -g batt
+# Currently drawing from 'Battery Power'
+#  -InternalBattery-0     99%; discharging; 3:00 remaining
+
+class Tmux
+  class Battery
+    SYMBOLS = {
+      :charging    => ["21c8".hex].pack("U*"),
+      :discharging => ["21ca".hex].pack("U*"),
+    }
+
+    def initialize
+      @output = `pmset -g batt`.strip.split("\n")
+      parse!
+    end
+
+    def run
+      case @state
+      when :charging
+        puts " #{@time} #{SYMBOLS[:charging]} "
+      when :discharging
+        puts " #{@time} #{SYMBOLS[:discharging]} "
+      end
+    end
+
+  private
+    def parse!
+      if @output.first.include? 'AC Power'
+        @source = :ac
+      else
+        @source = :battery
+      end
+
+      data = @output.last.strip.squeeze(' ').split(' ')
+
+      @percert = data[1][0..-3]
+      @state = data[2][0..-2].to_sym
+      @time = data[3] == '(no' ? '...' : data[3]
+    end
+  end
+end
+
+Tmux::Battery.new.run
