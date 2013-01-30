@@ -109,5 +109,7 @@ macro index O "<shell-escape>offlineimap<enter>" "run offline imap to sync all m
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
-macro index \Cn "<sidebar-next><sidebar-open>" 
-macro index \Cp "<sidebar-prev><sidebar-open>"
+bind index \Cn sidebar-next
+bind index \Cp sidebar-prev
+bind index \Ce sidebar-open
+macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"

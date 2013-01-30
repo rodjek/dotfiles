@@ -48,13 +48,18 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+inoremap jj <ESC>
 map <F2> :NERDTreeToggle<CR>
 cmap w!! w !sudo tee % > /dev/null
 
 :highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 
+set laststatus=2
+let g:Powerline_symbols = 'fancy'
 set statusline+=%{SyntasticStatuslineFlag()}
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
 let g:syntastic_auto_loc_list=1
+
+let g:ctrlp_custom_ignore = '\v[\/]vendor[\/]gems$'

@@ -21,6 +21,8 @@
 [hub]
 	protocol = https
 [core]
-	excludesfile = /Users/tsharpe/.gitignore.global
+excludesfile = /opt/boxen/config/git/gitignore
 [credential]
-	helper = osxkeychain
+helper = /opt/boxen/bin/boxen-git-credential
+[github]
+	user = rodjek
