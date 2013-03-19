@@ -2,6 +2,8 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_WinWidth = 50
 map <F4> :TlistToggle<cr>
