@@ -2,8 +2,7 @@
 tmux start-server
 tmux -L hack attach-session -d -t hack || {
   tmux -L hack new-session -d -s hack
-  tmux -L hack new-window -n mutt "mutt"
   tmux -L hack new-window -n IRC "ssh ishamael.sharpe.id.au"
-  tmux -L hack swap-window -s 1 -t 3
+  tmux -L hack swap-window -s 1 -t 2
   tmux -L hack attach-session -d -t hack
 }
