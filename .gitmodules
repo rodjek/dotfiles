@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/webapi"]
 	path = .vim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim
+[submodule ".vim/bundle/quicktask"]
+	path = .vim/bundle/quicktask
+	url = https://github.com/aaronbieber/quicktask
