@@ -2,6 +2,7 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+let mapleader = ","
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
@@ -30,7 +31,6 @@ set encoding=utf-8
 set autoindent
 set backspace=indent,eol,start
 
-let mapleader = ","
 
 nnoremap / /\v
 vnoremap / /\v
