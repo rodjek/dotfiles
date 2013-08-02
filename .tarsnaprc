@@ -1,0 +1,20 @@
+include ~
+exclude ~/Downloads
+exclude ~/Music
+exclude ~/Movies
+exclude ~/Dropbox
+exclude ~/Library
+exclude ~/Pictures/Lightroom/Lightroom 4 Catalog Previews.lrdata
+exclude ~/.bundler
+exclude ~/.cache
+exclude ~/.config
+exclude ~/.cups
+exclude ~/.dropbox
+exclude ~/.gem
+exclude ~/.Trash
+exclude ~/.npm
+exclude ~/.vagrant.d/boxes
+exclude ~/**/.bundle
+exclude ~/**/vendor/gems
+exclude ~/**/.vagrant/machines
+exclude ~/**/.tmp/librarian
