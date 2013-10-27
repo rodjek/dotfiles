@@ -45,17 +45,10 @@ mailboxes +---Personal--- \
           +personal/INBOX \
           +personal/sent \
           +personal/drafts \
-          +personal/Puppet-dev \
-          +personal/Puppet-users \
-          +personal/Reciepts \
-          +personal/Devops\ Weekly \
-          +personal/Personal \
           +---GitHub--- \
           +github/INBOX \
           +github/sent \
-          +github/drafts \
-          +github/Anchor \
-          +github/Cron
+          +github/drafts
 
 source ~/.mutt/personal.muttrc
 folder-hook personal/* source ~/.mutt/personal.muttrc
@@ -68,7 +61,8 @@ source ~/.mutt/solarized.muttrc
 set date_format = "%d/%m/%Y"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 set sort = threads
-set sort_aux = reverse-last-date-received
+set sort_aux = last-date-received
+set sort_browser = reverse-date
 set uncollapse_jump
 set sort_re
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
