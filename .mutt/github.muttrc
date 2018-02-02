@@ -1,5 +1,0 @@
-set from = "tim@github.com"
-set sendmail = "/opt/boxen/homebrew/bin/msmtp -a github"
-set mbox = "+github/archive"
-unset record
-set postponed = "+github/drafts"
