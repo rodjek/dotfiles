@@ -1,7 +1,7 @@
 class lightdm {
   $packages = [
     'lightdm',
-    'lightdm-gtk-greener',
+    'lightdm-gtk-greeter',
   ]
 
   package { $packages: }

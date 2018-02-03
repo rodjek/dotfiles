@@ -1,4 +1,5 @@
 include xorg
+include lightdm
 
 class { 'arch::timezone':
   zone_name => 'Australia/Melbourne',
