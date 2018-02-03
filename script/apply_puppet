@@ -1,6 +1,8 @@
 #!/bin/bash
 
+script/bootstrap
+
 pushd puppet > /dev/null
 bundle check > /dev/null || bundle install --path vendor/gems --binstubs
-bin/puppet apply --modulepath=modules manifests/workstation.pp
+sudo bin/puppet apply --modulepath=modules manifests/workstation.pp
 popd > /dev/null
