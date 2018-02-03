@@ -3,7 +3,7 @@ CWD = $(shell pwd)
 DESTDIR = $(HOME)
 CONFIG_D = $(DESTDIR)/.config
 
-INSTALL = install
+INSTALL = install -D
 INSTALL_DATA = $(INSTALL) -m 0644
 
 targets =
