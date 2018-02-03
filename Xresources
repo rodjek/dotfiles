@@ -1,0 +1,27 @@
+URxvt.font: xft:Terminus:size=10
+URxvt.scrollBar: false
+URxvt.perl-ext-common: selection-to-clipboard
+Xft.hintstyle: hintnone
+Xft.hinting: 0
+Xft.antialias: 1
+Xft.lcdfilter: lcdnone
+
+*.foreground: #eddbb2
+*.background: #282828
+*.cursorColor: #eddbb2
+*.color0: #282828
+*.color8: #928374
+*.color1: #cc241d
+*.color9: #fb4934
+*.color2: #98971a
+*.color10: #b8bb26
+*.color3: #d7992a
+*.color11: #fabd2f
+*.color4: #0081b3
+*.color12: #3995b5
+*.color5: #be2d6f
+*.color13: #d75b7d
+*.color6: #26b289
+*.color14: #73b88e
+*.color7: #a89984
+*.color15: #ebddb2
