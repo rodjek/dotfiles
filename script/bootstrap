@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ensure_package "ruby-bundler"
-
 function ensure_package() {
     local package="$1"
 
@@ -10,3 +8,7 @@ function ensure_package() {
         sudo pacman -S --noconfirm "${package}"
     fi
 }
+
+ensure_package "base-devel"
+ensure_package "augeas"
+ensure_package "ruby-bundler"
