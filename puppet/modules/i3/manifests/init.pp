@@ -6,6 +6,7 @@ class i3 {
     'rofi',
     'rxvt-unicode',
     'rxvt-unicode-terminfo',
+    'terminus-font',
     # TODO: hsetroot from AUR
   ]
 
