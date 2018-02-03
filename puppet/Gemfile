@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 gem 'puppet', '~> 5.3.0'
 gem 'facter', '~> 2.5.0'
-gem 'augeas', '~> 0.6.0'
+gem 'ruby-augeas', '~> 0.5.0'
