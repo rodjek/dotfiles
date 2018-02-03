@@ -1,0 +1,65 @@
+set $mod Mod4
+
+font pango:Jura Book 10
+
+floating_modifier $mod
+
+bindsym $mod+Return exec rxvt
+bindsym $mod+space exec rofi -show run
+
+bindsym Shift+Left focus left
+bindsym Shift+Right focus right
+bindsym Shift+Up focus up
+bindsym Shift+Down focus down
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down focus down
+
+bindsym Ctrl+a mode "command"
+
+mode "command" {
+    bindsym 1 workspace 1; mode "default"
+    bindsym 2 workspace 2; mode "default"
+    bindsym 3 workspace 3; mode "default"
+    bindsym 4 workspace 4; mode "default"
+    bindsym 5 workspace 5; mode "default"
+    bindsym 6 workspace 6; mode "default"
+    bindsym 7 workspace 7; mode "default"
+    bindsym 8 workspace 8; mode "default"
+    bindsym 9 workspace 9; mode "default"
+    bindsym 0 workspace 10; mode "default"
+
+    bindsym Ctrl+1 move container to workspace 1; mode "default"
+    bindsym Ctrl+2 move container to workspace 2; mode "default"
+    bindsym Ctrl+3 move container to workspace 3; mode "default"
+    bindsym Ctrl+4 move container to workspace 4; mode "default"
+    bindsym Ctrl+5 move container to workspace 5; mode "default"
+    bindsym Ctrl+6 move container to workspace 6; mode "default"
+    bindsym Ctrl+7 move container to workspace 7; mode "default"
+    bindsym Ctrl+8 move container to workspace 8; mode "default"
+    bindsym Ctrl+9 move container to workspace 9; mode "default"
+    bindsym Ctrl+0 move container to workspace 10; mode "default"
+
+    bindsym h split h; mode "default"
+    bindsym v split v; mode "default"
+    bindsym z fullscreen toggle; mode "default"
+
+    bindsym r reload; mode "default"
+    bindsym q kill; mode "default"
+    bindsym Escape mode "default"
+}
+
+bar {
+    status_command i3blocks
+    position top
+}
+
+gaps inner 6
+gaps outer 3
+for_window [class=".*"] border pixel 1
+focus_follows_mouse no
+
+exec compton -f --no-fading-openclose
+exec hsetroot -solid "#282828"

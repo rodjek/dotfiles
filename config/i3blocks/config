@@ -1,0 +1,13 @@
+command=/usr/share/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[volume]
+label=VOL
+instance=Master
+interval=10
+signal=10
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+interval=5
