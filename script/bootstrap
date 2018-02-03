@@ -9,6 +9,5 @@ function ensure_package() {
     fi
 }
 
-ensure_package "base-devel"
 ensure_package "augeas"
 ensure_package "ruby-bundler"
