@@ -7,7 +7,7 @@ class profile::i3 {
     config => 'puppet:///modules/dotfiles/config/i3/config',
   }
 
-  class { 'i3blocks':
+  class { 'i3::blocks':
     user   => 'tsharpe',
     config => 'puppet:///modules/dotfiles/config/i3blocks/config',
   }
