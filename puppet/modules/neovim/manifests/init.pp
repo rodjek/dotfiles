@@ -54,7 +54,7 @@ class neovim(
   }
 
   file { "${vim_config_dir}/init.vim":
-    ensure => file
+    ensure => file,
     owner  => $user,
     group  => $user,
     source => $vimrc,
