@@ -1,5 +1,5 @@
 class profile::i3 {
-  include xorg
+  include profile::xorg
   include lightdm
   include profile::fonts
 

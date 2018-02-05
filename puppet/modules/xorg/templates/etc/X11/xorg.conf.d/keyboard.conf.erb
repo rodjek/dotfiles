@@ -1,0 +1,12 @@
+Section "InputClass"
+  Identifier "system-keyboard"
+  MatchIsKeyboard "on"
+  Option "XkbLayout" "<%= @layout %>"
+  Option "XkbModel" "<%= @model %>"
+<%- unless @variant.empty? -%>
+  Option "XkbVariant" "<%= @variant %>"
+<%- end -%>
+<%- unless @options.empty? -%>
+  Option "XkbOptions" "<%= @options %>"
+<%- end -%>
+EndSection
