@@ -43,7 +43,7 @@ class neovim(
 
     exec { 'neovim/install_plugins':
       command     => '/usr/bin/nvim +PlugInstall +qall',
-      user        => $user
+      user        => $user,
       refreshonly => true,
       require     => [
         File["${vim_config_dir}/init.vim"],
