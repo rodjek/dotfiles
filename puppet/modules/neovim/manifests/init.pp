@@ -30,7 +30,7 @@ class neovim(
       user    => $user,
       group   => $user,
       creates => $vim_plug_path,
-      require => File["${vim_config_dir}}/autoload"],
+      require => File["${vim_config_dir}/autoload"],
     }
 
     file { "${vim_config_dir}/plugins.vim":
