@@ -1,5 +1,14 @@
 class profile::i3 {
   include xorg
   include lightdm
-  include i3
+
+  class { 'i3':
+    user   => 'tsharpe',
+    config => 'puppet:///modules/dotfiles/config/i3/config',
+  }
+
+  class { 'i3blocks':
+    user   => 'tsharpe',
+    config => 'puppet:///modules/dotfiles/config/i3blocks/config',
+  }
 }

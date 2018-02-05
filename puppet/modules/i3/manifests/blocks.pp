@@ -1,20 +1,10 @@
-class i3 (
+class i3::blocks (
   $user,
   $config,
 ) {
-  $packages = [
-    'i3-gaps',
-    'compton',
-    'rofi',
-    'rxvt-unicode',
-    'rxvt-unicode-terminfo',
-    'terminus-font',
-    # TODO: hsetroot from AUR
-  ]
+  package { 'i3blocks': }
 
-  package { $packages: }
-
-  $config_dir = "/home/${user}/.config/i3"
+  $config_dir = "/home/${user}/.config/i3blocks"
 
   file { $config_dir:
     ensure => directory,
