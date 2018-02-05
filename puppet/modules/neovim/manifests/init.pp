@@ -3,7 +3,7 @@ class neovim(
   $vimrc,
   $plugins = nil,
 ) {
-  $vim_config_dir = "home/${user}/.config/nvim"
+  $vim_config_dir = "/home/${user}/.config/nvim"
 
   package { 'neovim': }
 
