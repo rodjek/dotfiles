@@ -6,9 +6,6 @@ class i3 (
     'i3-gaps',
     'compton',
     'rofi',
-    'rxvt-unicode',
-    'rxvt-unicode-terminfo',
-    'terminus-font',
     # TODO: hsetroot from AUR
   ]
 
