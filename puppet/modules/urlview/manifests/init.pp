@@ -1,9 +1,7 @@
 class urlview(
   $user,
 ) {
-  arch::aur { 'urlview':
-    user => $user,
-  }
+  arch::aur { 'urlview': }
 
   file { "/home/${user}/.urlview":
     ensure  => file,
