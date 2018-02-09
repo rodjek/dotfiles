@@ -13,7 +13,7 @@ define arch::aur() {
   }
 
   exec { "aur/${name}/makepkg":
-    command     => 'makepkg -si',
+    command     => 'makepkg -si --needed --noconfirm --noprogressbar',
     cwd         => "/tmp/${name}-${unique_str}",
     refreshonly => true,
     path        => ['/usr/bin', '/usr/sbin'],
