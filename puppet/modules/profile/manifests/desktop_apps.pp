@@ -1,8 +1,4 @@
 class profile::desktop_apps {
-  $yaourt_pkgs = [
-    'spotify',
-  ]
-
   $pacman_pkgs = [
     'scrnsaverproto',
     'dbus-glib',
@@ -14,13 +10,9 @@ class profile::desktop_apps {
     'rtmpdump',
   ]
 
-  package { $pacman_pkgs:
-    provider => 'pacman',
-  }
+  package { $pacman_pkgs: }
 
-  package { $yaourt_pkgs:
-    provider        => 'yaourt',
-    install_options => [{'user' => 'tsharpe'}],
-    require         => Package[$pacman_pkgs],
+  arch::aur { 'spotify':
+    require => $pacman_pkgs,
   }
 }
