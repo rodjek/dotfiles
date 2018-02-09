@@ -7,7 +7,15 @@ Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Packag
 
   def self.yaourt(*args)
     yaourt_bin = Puppet::Util.which('yaourt')
-    Puppet::Util::Execution.execute([yaourt_bin, *args], :uid => run_as_user, :gid => run_as_user, :failonfail => true)
+    Puppet::Util::Execution.execute(
+      [yaourt_bin, *args],
+      :uid => run_as_user,
+      :gid => run_as_user,
+      :failonfail => true,
+      :custom_environment => {
+        'HOME' => run_as_user.nil? ? '/root' : "/home/#{run_as_user}",
+      },
+    )
   end
 
   def yaourt(*args)
