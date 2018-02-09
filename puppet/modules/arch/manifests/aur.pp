@@ -7,6 +7,9 @@ define arch::aur() {
     unless  => "pacman -Q ${name}",
     path    => ['/usr/bin', '/usr/sbin'],
     creates => "/tmp/${name}-${unique_str}",
+    notify  => Exec["aur/${name}/makepkg"],
+    user    => 'tsharpe',
+    group   => 'tsharpe',
   }
 
   exec { "aur/${name}/makepkg":
@@ -14,5 +17,7 @@ define arch::aur() {
     cwd         => "/tmp/${name}-${unique_str}",
     refreshonly => true,
     path        => ['/usr/bin', '/usr/sbin'],
+    user        => 'tsharpe',
+    group       => 'tsharpe',
   }
 }
