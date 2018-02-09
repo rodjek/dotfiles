@@ -14,6 +14,7 @@ Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Packag
       :failonfail => true,
       :custom_environment => {
         'HOME' => run_as_user.nil? ? '/root' : "/home/#{run_as_user}",
+        'PATH' => '/sbin:/bin:/usr/sbin:/usr/bin',
       },
     )
   end
