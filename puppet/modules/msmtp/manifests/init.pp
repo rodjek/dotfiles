@@ -1,6 +1,8 @@
 class msmtp(
   $user,
 ) {
+  include gnupg
+
   package { 'msmtp': }
 
   file { "/home/${user}/.msmtp":
