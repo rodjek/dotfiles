@@ -1,4 +1,4 @@
-URxvt.font: xft:Terminus:size=10
+URxvt.font: xft:Fantasque Sans Mono:size=14
 URxvt.scrollBar: false
 URxvt.perl-ext-common: selection-to-clipboard
 Xft.hintstyle: hintnone

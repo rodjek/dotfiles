@@ -2,43 +2,51 @@ require 'puppet/provider/package'
 
 Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Package) do
   desc 'yaourt (AUR) package provider'
-  commands :yaourt => 'yaourt'
   confine :operatingsystem => :archlinux
-  has_feature :upgradeable
+  has_feature :upgradeable, :install_options
+
+  def self.yaourt(*args)
+    yaourt_bin = Puppet::Util::Execution.which('yaourt')
+    Puppet::Util::Execution.execute([yaourt_bin, *args], :uid => run_as_user, :gid => run_as_user, :failonfail => true)
+  end
+
+  def yaourt(*args)
+    self.class.yaourt(*args)
+  end
 
   def self.listcmd
-    [command(:yaourt, '-Q')]
+    [command(:yaourt), '-Q']
   end
 
   def self.instances
     packages = []
+    regex = /^\w+\/(\S+)\s+(\S+)/
+    fields = [:name, :ensure]
 
-    begin
-      execpipe(listcmd) do |process|
-        fields = [:name, :ensure]
+    yaourt('-Q').split("\n").each do |line|
+      hash = {}
 
-        regex = /^\w+\/(\S+)\s+(\S+)/
-
-        process.each_line do |line|
-          hash = {}
-
-          if match = line.match(regex)
-            fields.zip(match.captures) do |field, value|
-              hash[field] = value
-            end
-
-            hash[:provider] = self.name
-            packages << new(hash)
-          else
-            warning('Failed to match line %s' % line)
-          end
+      if match = line.match(regex)
+        fields.zip(match.captures) do |field, value|
+          hash[field] = value
         end
+
+        hash[:provider] = self.name
+        packages << new(hash)
+      else
+        warning('Failed to match line %s' % line)
       end
-    rescue Puppet::ExecutionFailure
-      return nil
     end
 
-    return packages
+    packages
+  rescue Puppet::ExecutionFailure
+    return nil
+  end
+
+  def run_as_user
+    @run_as_user ||= @resource[:install_options].select { |r|
+      r.is_a?(Hash) && r.key?('user')
+    }.first['user']
   end
 
   def install
@@ -67,11 +75,12 @@ Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Packag
     return {
       :ensure => :purged,
       :status => 'missing',
-      :name => @resource[:name],
-      :error => 'ok',
+      :name   => @resource[:name],
+      :error  => 'ok',
     }
   end
 
   def uninstall
     yaourt '--noconfirm', '-R', @resource[:name]
+  end
 end
