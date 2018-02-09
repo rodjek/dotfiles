@@ -26,5 +26,13 @@ class i3 (
     group  => $user,
     mode   => '0644',
     source => $config,
+    notify => Exec['i3-msg reload'],
+  }
+
+  exec { 'i3-msg reload':
+    refreshonly => true,
+    path        => ['/usr/bin', '/usr/sbin'],
+    user        => $user,
+    group       => $user,
   }
 }
