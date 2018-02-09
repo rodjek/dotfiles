@@ -14,7 +14,9 @@ class profile::desktop_apps {
     'rtmpdump',
   ]
 
-  package { $pacman_pkgs: }
+  package { $pacman_pkgs:
+    provider => 'pacman',
+  }
 
   package { $yaourt_pkgs:
     provider        => 'yaourt',
