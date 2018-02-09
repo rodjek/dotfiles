@@ -13,6 +13,6 @@ class profile::desktop_apps {
   package { $pacman_pkgs: }
 
   arch::aur { 'spotify':
-    require => $pacman_pkgs,
+    require => Package[$pacman_pkgs],
   }
 }
