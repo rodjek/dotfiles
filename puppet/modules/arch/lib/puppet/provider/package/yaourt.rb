@@ -6,7 +6,7 @@ Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Packag
   has_feature :upgradeable, :install_options
 
   def self.yaourt(*args)
-    yaourt_bin = Puppet::Util::Execution.which('yaourt')
+    yaourt_bin = Puppet::Util.which('yaourt')
     Puppet::Util::Execution.execute([yaourt_bin, *args], :uid => run_as_user, :gid => run_as_user, :failonfail => true)
   end
 
