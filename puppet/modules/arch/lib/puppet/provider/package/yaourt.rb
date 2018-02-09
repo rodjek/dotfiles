@@ -49,6 +49,10 @@ Puppet::Type.type(:package).provide(:yaourt, :parent => Puppet::Provider::Packag
     }.first['user']
   end
 
+  def self.run_as_user
+    nil
+  end
+
   def install
     yaourt '--noconfirm', '-Sy', @resource[:name]
   end
