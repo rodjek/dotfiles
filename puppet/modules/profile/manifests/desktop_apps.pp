@@ -4,7 +4,7 @@ class profile::desktop_apps {
     'dbus-glib',
     'gconf',
     'gtk2',
-    'libcurl-compact',
+    'libcurl-compat',
     'libxss',
     'nss',
     'rtmpdump',
