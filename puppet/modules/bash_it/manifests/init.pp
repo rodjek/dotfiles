@@ -5,7 +5,7 @@ class bash_it(
     command => "git clone https://github.com/Bash-it/bash-it.git /home/${user}/.bash_it",
     path    => ['/usr/sbin', '/usr/bin'],
     user    => $user,
-    group   => $group,
+    group   => $user,
     creates => "/home/${user}/.bash_it",
   }
 
