@@ -11,3 +11,7 @@ function ensure_package() {
 
 ensure_package "augeas"
 ensure_package "ruby-bundler"
+
+pushd puppet > /dev/null
+bundle check > /dev/null || bundle install --path vendor/gems --binstubs
+popd > /dev/null
