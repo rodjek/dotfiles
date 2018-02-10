@@ -1,17 +1,13 @@
-SHELL = /bin/sh
-CWD = $(shell pwd)
-DESTDIR = $(HOME)
-CONFIG_D = $(DESTDIR)/.config
+help:
+	@echo "To setup a full Arch workstation, run 'make workstation'"
 
-INSTALL = install -D
-INSTALL_DATA = $(INSTALL) -m 0644
+update:
+	@git pull
 
-targets =
+bootstrap: update
+	@script/bootstrap
 
-all: all-targets
+workstation: bootstrap
+	@sudo FACTER_ruid=$(USER) puppet/bin/puppet apply --modulepath=puppet/modules puppet/manifests/workstation.pp
 
-include recipes/*.mk
-
-all-targets: $(targets)
-
-PHONY: all $(targets)
+PHONY: help update bootstrap workstation

@@ -1,5 +1,5 @@
 class gnupg(
-  $user,
+  $user = $facts['ruid'],
 ) {
   package { 'gnupg': }
 
