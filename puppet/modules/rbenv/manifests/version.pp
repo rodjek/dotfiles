@@ -11,6 +11,8 @@ define rbenv::version(
     cwd         => "/home/${user}",
     creates     => "/home/${user}/.rbenv/versions/${name}",
     require     => Class['rbenv'],
-    environment => { 'HOME' => "/home/${user}" },
+    environment => [
+      "HOME=/home/${user}",
+    ],
   }
 }
