@@ -13,7 +13,7 @@ $(NAME):
 	@CL_SOURCE_REGISTRY=$(PWD)/: $(LISP) --output $(NAME) --dump ! --lisp sbcl --quicklisp --dispatch-system $(NAME)/main --system $(NAME)
 
 install: $(NAME)
-	@$(INSTALL) $(SCRIPT) $(BINARY)
+	@$(INSTALL) -D $(SCRIPT) $(BINARY)
 	@$(BINARY) make-script-symlinks $(NAME)
 
 clean:
