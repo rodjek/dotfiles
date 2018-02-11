@@ -1,6 +1,5 @@
 class spotify {
   $pacman_pkgs = [
-    'scrnsaverproto',
     'dbus-glib',
     'gconf',
     'gtk2',
