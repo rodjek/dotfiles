@@ -6,6 +6,7 @@ include profile::mail
 include avahi
 
 include spotify
+include sbcl
 
 class { 'bash_it':
   user => 'tsharpe',
