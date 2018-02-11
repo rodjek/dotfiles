@@ -13,4 +13,4 @@
     (ql:quickload :linedit)
     (require :sb-aclrepl)
     (require :linedit)
-    (funcall (intern "INSTALL-REPL" :linedit) :wrap-current t)))
+    (funcall (intern "INSTALL-REPL" :linedit) :wrap-current t :eof-quits t :history "~/.linedit_history")))
