@@ -8,7 +8,7 @@ define rbenv::version(
     path    => ['/usr/sbin', '/usr/bin'],
     user    => $user,
     group   => $user,
-    pwd     => "/home/${user}",
+    cwd     => "/home/${user}",
     creates => "/home/${user}/.rbenv/versions/${name}",
     require => Class['rbenv'],
   }

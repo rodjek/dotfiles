@@ -22,7 +22,7 @@ class sbcl(
     path        => ['/usr/bin'],
     cwd         => "/home/${user}",
     user        => $user,
-    group       => $group,
+    group       => $user,
     refreshonly => true,
     require     => Package['sbcl'],
   }
