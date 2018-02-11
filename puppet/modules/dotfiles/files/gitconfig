@@ -1,0 +1,10 @@
+[user]
+	email = tim@sharpe.id.au
+	name = Tim Sharpe
+[credential]
+	helper = pass
+[alias]
+    grep = grep -Ii
+    st = status
+[url "https://github.com/"]
+	insteadOf = git@github.com:

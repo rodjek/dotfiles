@@ -8,6 +8,7 @@ include avahi
 
 include spotify
 include sbcl
+include git
 
 class { 'bash_it':
   user => 'tsharpe',
