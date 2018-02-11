@@ -1,3 +1,5 @@
 /.bundle/
 /puppet/.bundle/
 /puppet/vendor/gems/
+/puppet/bin/
+/rodjek-scripts/rodjek-scripts
