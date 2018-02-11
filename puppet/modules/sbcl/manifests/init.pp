@@ -3,7 +3,7 @@ class sbcl(
 ) {
   package { 'sbcl': }
 
-  arch::aur { 'cl-launch']:
+  arch::aur { 'cl-launch':
     require => Package['sbcl'],
   }
 
