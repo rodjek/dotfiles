@@ -4,12 +4,13 @@ define rbenv::version(
   include rbenv
 
   exec { "rbenv/install/${name}":
-    command => "rbenv install ${name}",
-    path    => ['/usr/sbin', '/usr/bin'],
-    user    => $user,
-    group   => $user,
-    cwd     => "/home/${user}",
-    creates => "/home/${user}/.rbenv/versions/${name}",
-    require => Class['rbenv'],
+    command     => "rbenv install ${name}",
+    path        => ['/usr/sbin', '/usr/bin'],
+    user        => $user,
+    group       => $user,
+    cwd         => "/home/${user}",
+    creates     => "/home/${user}/.rbenv/versions/${name}",
+    require     => Class['rbenv'],
+    environment => { 'HOME' => "/home/${user}" },
   }
 }
