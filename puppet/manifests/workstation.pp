@@ -11,3 +11,4 @@ class { 'bash_it':
   user => 'tsharpe',
 }
 arch::aur { 'hipchat': }
+package { 'pass': }
