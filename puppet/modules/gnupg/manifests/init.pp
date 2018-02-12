@@ -25,4 +25,12 @@ class gnupg(
     group  => $user,
     mode   => '0644',
   }
+
+  file { '/etc/udev/rules.d/yubikey.rules':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0444',
+    content => 'ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0405", MODE="644", GROUP="alarm"',
+  }
 }
