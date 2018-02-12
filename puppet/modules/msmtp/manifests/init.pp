@@ -1,5 +1,5 @@
 class msmtp(
-  $user,
+  $user = $facts['ruid'],
 ) {
   include gnupg
 

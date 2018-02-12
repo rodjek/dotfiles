@@ -1,0 +1,85 @@
+IMAPAccount personal
+Host imap.gmail.com
+User tim@sharpe.id.au
+PassCmd "/usr/bin/pass google.com/tim@sharpe.id.au"
+SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs PLAIN
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Path ~/.mail/personal/
+Inbox ~/.mail/personal/INBOX
+
+Channel personal
+Master :personal-remote:
+Slave :personal-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Channel personal-sent
+Master :personal-remote:"[Gmail]/Sent Mail"
+Slave :personal-local:sent
+Create Slave
+
+Channel personal-trash
+Master :personal-remote:"[Gmail]/Trash"
+Slave :personal-local:trash
+Create Slave
+
+Channel personal-drafts
+Master :personal-remote:"[Gmail]/Drafts"
+Slave :personal-local:drafts
+Create Slave
+
+Channel personal-archive
+Master :personal-remote:"[Gmail]/All Mail"
+Slave :personal-local:archive
+Create Slave
+
+IMAPAccount puppet
+Host imap.gmail.com
+User tim.sharpe@puppet.com
+PassCmd "/usr/bin/pass google.com/tokens/puppet/asmodean"
+SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs PLAIN
+
+IMAPStore puppet-remote
+Account puppet
+
+MaildirStore puppet-local
+Path ~/.mail/puppet/
+Inbox ~/.mail/puppet/INBOX
+
+Channel puppet
+Master :puppet-remote:
+Slave :puppet-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Channel puppet-sent
+Master :puppet-remote:"[Gmail]/Sent Mail"
+Slave :puppet-local:sent
+Create Slave
+
+Channel puppet-trash
+Master :puppet-remote:"[Gmail]/Trash"
+Slave :puppet-local:trash
+Create Slave
+
+Channel puppet-drafts
+Master :puppet-remote:"[Gmail]/Drafts"
+Slave :puppet-local:drafts
+Create Slave
+
+Channel puppet-archive
+Master :puppet-remote:"[Gmail]/All Mail"
+Slave :puppet-local:archive
+Create Slave

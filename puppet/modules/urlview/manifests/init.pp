@@ -1,5 +1,5 @@
 class urlview(
-  $user,
+  $user = $facts['ruid'],
 ) {
   arch::aur { 'urlview': }
 
