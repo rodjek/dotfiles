@@ -1,0 +1,23 @@
+dotfiles::packages:
+    - arandr
+    - feh
+    - i3-gaps
+    - i3ass
+    - i3blocks
+    - i3lock-fancy-git
+    - light
+    - nerd-fonts-fantasque-sans-mono
+    - nerd-fonts-hacks
+    - otf-fantasque-sans-mono
+    - otf-font-awesome
+    - paper-icon-theme
+    - pavucontrol
+    - py3status
+    - rofi
+    - scrot
+    - ttf-dejavu
+    - ttf-fantasque-sans-mono
+    - ttf-font-awesome
+    - xautolock
+    - xautomation
+    - xbindkeys

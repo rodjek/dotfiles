@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - cl-launch
+    - roswell
+    - sbcl

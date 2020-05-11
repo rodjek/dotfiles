@@ -1,0 +1,5 @@
+dotfiles::packages:
+    - wpa_actiond
+    - wpa_supplicant
+    - xf86-video-intel
+    - xf86-video-vesa

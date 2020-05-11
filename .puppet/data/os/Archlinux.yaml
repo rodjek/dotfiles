@@ -1,0 +1,13 @@
+dotfiles::packages:
+    - aconfmgr-git
+    - awesome-terminal-fonts
+    - fwupd
+    - linux-headers
+    - netctl
+    - netctl-auto-resume
+    - netctl-dispatcher-chrony
+    - nss-mdns
+    - pulseaudio
+    - pulseaudio-alsa
+    - terminus-font
+    - xdg-user-dirs

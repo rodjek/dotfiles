@@ -1,0 +1,3 @@
+dotfiles::packages:
+    - git
+    - github-cli

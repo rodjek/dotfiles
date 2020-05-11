@@ -1,0 +1,5 @@
+dotfiles::packages:
+    - discord
+    - jdk8-openjdk
+    - jre-openjdk
+    - multimc-git

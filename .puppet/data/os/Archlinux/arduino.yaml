@@ -1,0 +1,5 @@
+dotfiles::packages:
+    - arduino
+    - arduino-avr-core
+    - avr-gcc
+    - teensy-loader-cli

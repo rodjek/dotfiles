@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - accountsservice
+    - lightdm
+    - lightdm-gtk-greeter

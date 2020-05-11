@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - vagrant
+    - virtualbox
+    - virtualbox-guest-iso

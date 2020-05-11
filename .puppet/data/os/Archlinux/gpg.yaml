@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - ccid
+    - gnupg
+    - pcsc-tools

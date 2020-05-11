@@ -1,0 +1,3 @@
+lookup_options:
+    dotfiles::packages:
+        merge: deep

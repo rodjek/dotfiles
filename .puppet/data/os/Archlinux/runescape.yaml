@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - jdk8-openjdk
+    - jre-openjdk
+    - osbuddy

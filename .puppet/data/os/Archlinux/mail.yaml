@@ -1,0 +1,9 @@
+dotfiles::packages:
+    - elinks
+    - isync
+    - links
+    - msmtp
+    - neomutt
+    - notmuch
+    - notmuch-mutt
+    - urlview

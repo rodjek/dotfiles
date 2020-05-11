@@ -1,0 +1,3 @@
+dotfiles::packages:
+    - firefox
+    - flashplugin
