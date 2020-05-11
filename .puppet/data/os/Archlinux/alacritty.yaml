@@ -1,2 +1,4 @@
 dotfiles::packages:
     - alacritty-git
+dotfiles::symlinks:
+    .config/alacritty/alacritty.yml:
