@@ -7,7 +7,7 @@ dotfiles::packages:
     - i3lock-fancy-git
     - light
     - nerd-fonts-fantasque-sans-mono
-    - nerd-fonts-hacks
+    - nerd-fonts-hack
     - otf-fantasque-sans-mono
     - otf-font-awesome
     - paper-icon-theme

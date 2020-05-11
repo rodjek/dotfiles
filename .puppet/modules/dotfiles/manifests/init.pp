@@ -12,5 +12,7 @@ class dotfiles(
     }
   }
 
-  notify { $packages: }
+  package { $packages:
+    provider => packer,
+  }
 }
