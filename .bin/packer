@@ -39,7 +39,11 @@ if [[ -t 1 && ! $COLOR = "NO" ]]; then
   ENDCOLOR='\e[0m'
   S='\\'
 fi
-_WIDTH="$(stty size | cut -d ' ' -f 2)"
+if [[ -t 0 ]]; then
+  _WIDTH="$(stty size | cut -d ' ' -f 2)"
+else
+  _WIDTH=75
+fi
 
 # nop makepkg functions as workaround for bad PKGBUILDs
 plain() {
@@ -221,8 +225,12 @@ aurbar() {
   beginbar="["
   endbar="] "
   perc="$(($1*100/$2))"
-  width="$(stty size)"
-  width="${width##* }"
+  if [[ -t 0 ]]; then
+    width="$(stty size)"
+    width="${width##* }"
+  else
+    width=75
+  fi
   charsbefore="$((${#beginline}+${#1}+${#2}+${#beginbar}+3))"
   spaces="$((51-$charsbefore))"
   barchars="$(($width-51-7))"
