@@ -622,6 +622,7 @@ while [[ $1 ]]; do
     '--needed') PACOPTS+=("--needed");;
     '--assume-installed') PACOPTS+=("--assume-installed" "$2"); shift;;
     '--nodeps') PACOPTS+=("--nodeps");;
+    '--noprogressbar') PACOPTS+=("--noprogressbar");;
     '--noedit') noedit='1' ;;
     '--auronly') auronly='1' ;;
     '--quickcheck') quickcheck='1' ;;
