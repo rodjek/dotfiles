@@ -2,3 +2,5 @@ dotfiles::packages:
     - cl-launch
     - roswell
     - sbcl
+dotfiles::symlinks:
+    .sbclrc:
