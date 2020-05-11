@@ -11,6 +11,11 @@ define dotfiles::symlink(
                 .lest || { fail("${title} symlink does not specify a target") },
   }
 
+  $parent = dotfiles::dirname($path)
+  unless defined(Dotfiles::Mkdir_p[$parent]) {
+    dotfiles::mkdir_p { $parent: }
+  }
+
   file { $path:
     ensure => symlink,
     target => $target,
