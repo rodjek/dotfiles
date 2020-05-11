@@ -1,5 +1,0 @@
-set from = "tim@sharpe.id.au"
-set sendmail = "/opt/boxen/homebrew/bin/msmtp -a personal"
-set mbox = "+personal/archive"
-unset record
-set postponed = "+personal/drafts"
