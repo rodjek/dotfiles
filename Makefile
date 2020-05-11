@@ -10,6 +10,7 @@ facts:
 bootstrap: $(HOME)/.bin/packer
 	@pacman --query ruby > /dev/null || sudo pacman --noconfirm --sync ruby
 	@pacman --query ruby-bundler > /dev/null || sudo pacman --noconfirm --sync ruby-bundler
+	@pacman --query jshon > /dev/null || sudo pacman --noconfirm --sync jshon
 
 $(HOME)/.bin/packer:
 	@mkdir --parents "$(HOME)/.bin"
