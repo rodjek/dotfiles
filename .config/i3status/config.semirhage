@@ -1,0 +1,55 @@
+general {
+    colors = true
+    interval = 5
+    separator = true
+    output_format = "i3bar"
+}
+
+order += "maildir personal"
+order += "dpms"
+order += "group battery"
+order += "group clock"
+
+group battery {
+    format = "{output}"
+    button_next = 1
+
+    battery_level percent {
+        format = "{icon} {percent}%"
+    }
+
+    battery_level time {
+        format = "{icon} {time_remaining}"
+    }
+}
+
+dpms {
+    format = " "
+    color_on = "#A9A9A9"
+    color_off = "#7FFF00"
+}
+
+maildir personal {
+    format = "P: {count}"
+    path = "~/.mail/personal/INBOX"
+}
+
+group clock {
+    format = "{output}"
+    button_next = 1
+
+    tztime mel {
+        format = "MEL %H:%M"
+        timezone = "Australia/Melbourne"
+    }
+
+    tztime pdx {
+        format = "PDX %H:%M"
+        timezone = "America/Los_Angeles"
+    }
+
+    tztime bfs {
+        format = "BFS %H:%M"
+        timezone = "Europe/Belfast"
+    }
+}

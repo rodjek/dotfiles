@@ -1,0 +1,20 @@
+[Default Applications]
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+image/jpeg=firefox.desktop
+x-scheme-handler/discord-431872723946438658=discord-431872723946438658.desktop
+x-scheme-handler/discord-409416265891971072=discord-409416265891971072.desktop
+x-scheme-handler/discord-551187306317611043=discord-551187306317611043.desktop
+x-scheme-handler/discord-505751038989434881=discord-505751038989434881.desktop
+
+[Added Associations]
+application/x-chrome-extension=vivaldi-stable.desktop;
+image/png=firefox.desktop;
+application/pdf=firefox.desktop;
+image/jpeg=firefox.desktop;
+image/gif=firefox.desktop;
+text/plain=nvim.desktop;
+application/json=nvim.desktop;

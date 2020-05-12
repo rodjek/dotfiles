@@ -1,0 +1,7 @@
+set from = "tim@sharpe.id.au"
+set mbox = "+personal/INBOX"
+set postponed = "+personal/drafts"
+set sendmail = "msmtp -a personal"
+unalternates *
+alternates "^tim@sharpe\.id.\au$" "^tim@bombasticmonkey\.com$"
+unset record

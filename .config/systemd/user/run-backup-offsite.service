@@ -1,0 +1,13 @@
+[Unit]
+Description=run-backup offsite
+
+[Service]
+ExecStartPre=/usr/bin/gpg --card-status
+ExecStart=/home/tsharpe/.bin/run-backup offsite
+Nice=19
+IOSchedulingClass=2
+IOSchedulingPriority=7
+Type=oneshot
+
+[Install]
+WantedBy=default.target

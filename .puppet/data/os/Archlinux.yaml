@@ -11,3 +11,7 @@ dotfiles::packages:
     - pulseaudio-alsa
     - terminus-font
     - xdg-user-dirs
+dotfiles::symlinks:
+    .bin/packer:
+    .config:
+    .local/share:

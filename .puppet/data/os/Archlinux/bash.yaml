@@ -1,0 +1,4 @@
+dotfiles::packages:
+    - bash
+dotfiles::symlinks:
+    .bashrc: .config/bash/bashrc

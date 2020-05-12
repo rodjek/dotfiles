@@ -1,0 +1,4 @@
+text/html; elinks %s; nametemplate=%s.html
+text/html; elinks -dump %s; nametemplate=%s.html; copiousoutput
+text/Html; elinks %s; nametemplate=%s.html
+text/Html; elinks -dump %s; nametemplate=%s.html; copiousoutput

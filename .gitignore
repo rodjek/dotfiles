@@ -2,3 +2,26 @@
 /vendor/
 /Gemfile.lock
 /.ruby-version
+/.config/borg/security/
+
+/.config/nvim/plugged/
+/.config/nvim/undodir/
+/.config/nvim/.netrwhist
+
+/.config/Thunar/accels.scm
+/.config/pavucontrol.ini
+/.config/py3status/__pycache__/
+
+# Naughty apps that combine cache or local data with config
+/.config/google-chrome/
+/.config/gtk-2.0/
+/.config/pulse/
+/.config/Simplify3D/
+/.config/Slack/
+/.config/spotify/
+/.config/VirtualBox/
+/.config/vivaldi/
+/.config/vocal/
+/.config/xfce4/
+/.config/yarn/
+/.config/Zeal/

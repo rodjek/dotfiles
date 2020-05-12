@@ -1,0 +1,37 @@
+# Exit early when running non-interactively
+[ -z "${PS1}" ] && return
+
+# Exit early if running as a restricted shell.
+! shopt -q restricted_shell 2> /dev/null || return
+
+# Keep 32K commands in the history
+HISTFILESIZE=$((1 << 15))
+
+# Don't write duplicate commands to the history
+HISTCONTROL=ignoredups
+
+# Write timestamps to the history
+HISTTIMEFORMAT='%F %T '
+
+config_dir=$(dirname $(readlink -f $BASH_SOURCE))
+# Save entire multiline command into one history entry
+shopt -s cmdhist
+# Append to the history, rather than overwrite
+shopt -s histappend
+
+set -a
+source "$(dirname ${config_dir})/environment"
+set +a
+
+source "${config_dir}/util/before.sh"
+source "${config_dir}/util/colours.sh"
+source "${config_dir}/util/log.sh"
+
+source "${config_dir}/aliases.sh"
+
+source "${config_dir}/functions/repo.sh"
+
+source "${config_dir}/plugins/arch.sh"
+source "${config_dir}/plugins/update.sh"
+source "${config_dir}/plugins/gitstatus/gitstatus.plugin.sh"
+source "${config_dir}/plugins/prompt.sh"

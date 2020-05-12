@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup to offsite every hour
+
+[Timer]
+WakeSystem=false
+OnCalendar=*-*-* 0/1:00:00
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

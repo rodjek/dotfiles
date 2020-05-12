@@ -1,0 +1,10 @@
+[Unit]
+Description=sync-mail fast
+
+[Service]
+ExecStartPre=/usr/bin/gpg --card-status
+ExecStart=/bin/bash -l -c /home/tsharpe/.bin/sync-mail fast
+Type=oneshot
+
+[Install]
+WantedBy=default.target

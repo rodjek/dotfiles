@@ -1,0 +1,99 @@
+# Paths
+set folder = ~/.mail # maildir location
+set alias_file = ~/.config/mutt/alias # alias list location
+set header_cache = ~/.cache/mutt/headers # header cache location
+set message_cachedir = ~/.cache/mutt/bodies # body cache location
+set certificate_file = ~/.config/mutt/certificates # ssl certificate location
+set mailcap_path = ~/.config/mutt/mailcap # filetype map
+set tmpdir = ~/.cache/mutt/tmp
+set signature = ~/.config/mutt/sig
+
+# Basic options
+set wait_key = no # Don't wait for keypress after exec-ing
+set mbox_type = Maildir # Mailbox type
+set timeout = 3 # How many seconds to wait for user input
+set mail_check = 0 # How many seconds between checks for new mail
+unset move # Don't move messages after reading
+set delete # Delete without confirmation on sync
+unset confirmappend # Append messages to mailbox without confirmation
+set quit # Quit without confirmation
+unset mark_old # Disable "old" message state
+unset beep_new # No bell on new messages
+set pipe_decode # Decode messages before piping
+set thorough_search # Decode message before searching
+
+# Sidebar patch
+set sidebar_divider_char = '  |'
+set sidebar_visible = yes
+set sidebar_width = 24
+set sidebar_format = "%B%* (%N)"
+
+# Status bar
+set status_chars = " *%A"
+set status_format = "---[ Folder: %f ]---[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]---%>-%?p?(%p postponed)?---"
+
+# Header options
+ignore * # ignore all headers by default
+unignore from: to: cc: date: subject: # show these headers
+unhdr_order * # clear any default header ordering
+hdr_order from: to: cc: date: subject # display headers in this order
+
+# Account hooks
+set spoolfile = "+personal/INBOX"
+mailboxes +personal/INBOX \
+          +personal/sent \
+          +personal/drafts
+source ~/.config/mutt/personal.muttrc
+folder-hook personal/* source ~/.config/mutt/personal.muttrc
+
+source ~/.config/mutt/colours.muttrc
+
+# Index view
+set date_format = "%d/%m/%Y" # Format string for dates
+set index_format = "[%Z]  %D  %-20.20F  %s" # Format string for messages in index view
+set sort = threads # Sort messages into threads
+set sort_aux = last-date-received # Sort threads so that teh oldest is first
+set sort_browser = reverse-date # Sort files by date (oldest first)
+set uncollapse_jump # Jump to the next unread message in uncollapsed thread
+set sort_re # Sort by mailboxes in sidebar
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Pager view
+set pager_index_lines = 10 # How many lines of the index view to show when in pager
+set pager_context = 3 # Number of lines of context to show when changing page
+set pager_stop # Do not jump to next message automatically
+set menu_scroll # Scroll line-by-line
+set tilde # Bad blank lines with ~
+unset markers # Don't display a marker when wrapping lines
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+auto_view text/html text/Html
+
+# Compose view
+set realname = "Tim Sharpe" # Name used when sending messages
+set use_envelope_from # Derive sender from header
+set sig_dashes # Insert a short line of dashes before signature
+set edit_headers # Allow me to edit headers before sending
+set fast_reply # Skip prompts for recipients & subject when replying
+set askcc # Prompt for CC recipients before writing message
+set fcc_attach # Save attachments on outgoing messages
+unset mime_forward # Forward message in body rather than as an attachment
+set forward_format = "Fwd: %s" # Format string for forwarded subjects
+set forward_decode # Decode message before forwarding
+set attribution = "On %d, %n wrote:" # Format string inserted before replied body
+set reply_to # Respect Reply-to header if present
+set reverse_name # Use alternates when populating From header
+set include # Include message being replied to in body
+set forward_quote # Quote forwarded messages in body
+
+# Key bindings
+bind  index   <tab> sync-mailbox
+bind  compose p     postpone-message
+bind  index   p     recall-message
+macro index   O     "<shell-escape>sync-mail fast<enter>" "Sync mail with IMAP server(s)"
+macro index   C     "<copy-message>?<toggle-mailboxes>"   "Copy a message to a mailbox"
+macro index   M     "<save-message>?<toggle-mailboxes>"   "Move a message to a mailbox"
+macro pager   \Cu   "|urlview<enter>"                     "Call urlview to open links"
+bind  index   \Cn   sidebar-next
+bind  index   \Cp   sidebar-prev
+bind  index   \Ce   sidebar-open

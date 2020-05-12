@@ -1,0 +1,147 @@
+set $mod Mod4
+
+font pango:FantasqueSansMono Nerd Font 14
+
+floating_modifier $mod
+
+bindsym Shift+Left focus left
+bindsym Shift+Right focus right
+bindsym Shift+Up focus up
+bindsym Shift+Down focus down
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down focus down
+
+bindsym Ctrl+a mode "command"
+
+set $workspace1 "1:  "
+set $workspace2 "2:  "
+set $workspace3 "3:  "
+set $workspace4 "4:  "
+set $workspace5 "5:  "
+set $workspace6 "6:  "
+set $workspace7 "7:  "
+set $workspace8 "8: 聆 "
+set $workspace9 "9:  "
+set $workspace0 "10:  "
+
+#workspace $workspace1 output HDMI1 eDP1
+#workspace $workspace2 output HDMI1 eDP1
+#workspace $workspace3 output HDMI1 eDP1
+#workspace $workspace4 output HDMI1 eDP1
+#workspace $workspace5 output HDMI1 eDP1
+#workspace $workspace6 output HDMI1 eDP1
+#workspace $workspace7 output eDP1
+#workspace $workspace8 output eDP1
+#workspace $workspace9 output eDP1
+#workspace $workspace0 output eDP1
+
+workspace $workspace1 output DP2-2 eDP1
+workspace $workspace2 output DP2-2 eDP1
+workspace $workspace3 output DP2-2 eDP1
+workspace $workspace4 output DP2-2 eDP1
+workspace $workspace5 output DP2-2 eDP1
+workspace $workspace6 output DP2-2 eDP1
+workspace $workspace7 output HDMI1 eDP1
+workspace $workspace8 output HDMI1 eDP1
+workspace $workspace9 output HDMI1 eDP1
+workspace $workspace0 output HDMI1 eDP1
+
+assign [class="Slack"] workspace number $workspace8
+assign [class="Spotify"] workspace number $workspace9
+for_window [class="Spotify"] move to workspace number $workspace9
+for_window [class="MPlayer"] floating enable
+
+mode "command" {
+    bindsym 1 workspace number $workspace1; mode "default"
+    bindsym 2 workspace number $workspace2; mode "default"
+    bindsym 3 workspace number $workspace3; mode "default"
+    bindsym 4 workspace number $workspace4; mode "default"
+    bindsym 5 workspace number $workspace5; mode "default"
+    bindsym 6 workspace number $workspace6; mode "default"
+    bindsym 7 workspace number $workspace7; mode "default"
+    bindsym 8 workspace number $workspace8; mode "default"
+    bindsym 9 workspace number $workspace9; mode "default"
+    bindsym 0 workspace number $workspace0; mode "default"
+
+    bindsym Ctrl+1 move container to workspace number $workspace1; mode "default"
+    bindsym Ctrl+2 move container to workspace number $workspace2; mode "default"
+    bindsym Ctrl+3 move container to workspace number $workspace3; mode "default"
+    bindsym Ctrl+4 move container to workspace number $workspace4; mode "default"
+    bindsym Ctrl+5 move container to workspace number $workspace5; mode "default"
+    bindsym Ctrl+6 move container to workspace number $workspace6; mode "default"
+    bindsym Ctrl+7 move container to workspace number $workspace7; mode "default"
+    bindsym Ctrl+8 move container to workspace number $workspace8; mode "default"
+    bindsym Ctrl+9 move container to workspace number $workspace9; mode "default"
+    bindsym Ctrl+0 move container to workspace number $workspace0; mode "default"
+
+    bindsym h split h; mode "default"
+    bindsym v split v; mode "default"
+    bindsym z fullscreen toggle; mode "default"
+
+    bindsym p exec bash -lc "pass clip --rofi"; mode "default"
+    bindsym s exec scrot -u -e 'mv $f ~/shots/' '%Y-%m-%d-%H-%M-%S_$wx$h.png'; mode "default"
+    bindsym Return exec alacritty; mode "default"
+    bindsym space exec rofi -show run; mode "default"
+    bindsym l exec ~/.bin/lock-screen; mode "default"
+
+    bindsym t exec --no-startup-id ~/.bin/scratchpad term; mode "default"
+    bindsym m exec --no-startup-id ~/.bin/scratchpad mutt; mode "default"
+    bindsym Ctrl+v exec --no-startup-id ~/.bin/scratchpad pavucontrol; mode "default"
+
+    bindsym r reload; mode "default"
+    bindsym Ctrl+r restart; mode "default"
+    bindsym q kill; mode "default"
+    bindsym Escape mode "default"
+
+}
+
+bindsym XF86AudioMute exec ~/.bin/volume mute
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec ~/.bin/volume up
+bindsym XF86AudioLowerVolume exec ~/.bin/volume down
+bindsym XF86Display exec ~/.screenlayout/desktop.sh
+
+set $transparent #00000000
+set $cyan0 #4ec2f7
+set $silver0 #e4e4e4
+set $orange #ff8700
+set $cyan #4ec2f799
+set $aqua #00708999
+set $wine #72003e99
+set $magenta #af005f99
+set $silver #e4e4e499
+set $toxic #8ec00099
+set $elegant #00002c00
+
+bar {
+    i3bar_command i3bar -t
+    separator_symbol "  "
+    status_command py3status --include ~/.config/py3status
+    position top
+    colors {
+        #                  Border   Background Text
+        focused_workspace  $silver0 $silver0   $elegant
+        active_workspace   $elegant $elegant   $orange
+        inactive_workspace $elegant $elegant   $cyan0
+        urgent_workspace   $aqua    $aqua      $silver0
+        background                  $elegant
+    }
+}
+
+gaps inner 6
+gaps outer 3
+for_window [class=".*"] border pixel 1
+focus_follows_mouse no
+
+for_window [title="scratchpad_term"] move scratchpad, border pixel 1
+for_window [title="scratchpad_mutt"] move scratchpad, border pixel 1
+for_window [instance="pavucontrol"] move scratchpad, border pixel 1, floating
+
+exec --no-startup-id ~/.bin/set-bg --apply
+exec --no-startup-id xset -dpms
+exec_always --no-startup-id xautolock -restart &
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
+exec_always --no-startup-id xbindkeys

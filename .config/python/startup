@@ -1,0 +1,17 @@
+import atexit
+import os
+import readline
+import sys
+
+default_xdg_data = os.path.join(os.path.expanduser('~'), '.local', 'share')
+histfile = os.path.join(os.environ.get('XDG_DATA_HOME', default_xdg_data), 'python', 'history')
+
+os.makedirs(os.path.dirname(histfile), exist_ok=True)
+
+try:
+    readline.read_history_file(histfile)
+    readline.set_history_length(1000)
+except FileNotFoundError:
+    pass
+
+atexit.register(readline.write_history_file, histfile)

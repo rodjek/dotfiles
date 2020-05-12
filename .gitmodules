@@ -1,0 +1,3 @@
+[submodule ".config/bash/plugins/gitstatus"]
+	path = .config/bash/plugins/gitstatus
+	url = https://github.com/romkatv/gitstatus

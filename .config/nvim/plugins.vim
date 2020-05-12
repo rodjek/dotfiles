@@ -1,0 +1,30 @@
+call plug#begin()
+
+Plug 'godlygeek/tabular'
+Plug '~/code/rodjek/vim-puppet'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'bhurlow/vim-parinfer'
+Plug 'fatih/vim-go'
+Plug 'junegunn/vader.vim'
+Plug 'mattn/emmet-vim'
+Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'metakirby5/codi.vim'
+Plug 'mboughaba/i3config.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'sirtaj/vim-openscad'
+Plug 'srcery-colors/srcery-vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'jaredgorski/spacecamp'
+Plug 'rust-lang/rust.vim'
+
+call plug#end()
